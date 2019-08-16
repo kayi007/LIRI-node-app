@@ -26,10 +26,14 @@ function showMovie(){
     if(userInput !== ""){
         axios.get(queryURL).then(function(response){
             var movie = response.data;
-            console.log(response);
-            console.log(response.data.Ratings);
+            // console.log(response);
+            // console.log(response.data.Ratings);
+            output = `\n-------------------------------------------\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`
+
+            console.log(output);
 
         }).catch(function(error) {
+            console.log("enter Error");
             if (error.response) {
                 // The request was made and the server responded with a status code
                 // that falls out of the range of 2xx
@@ -68,7 +72,7 @@ function showMovie(){
 
             output = chalk.red(`Seems like you did not enter a movie!\n`) + `It's okay, just remember to enter it next time!\n-------------------------------------------\nHere's a recommendation for you: (It's on Netflix!)\n\n` + chalk.yellow(`Movie Title: `) + `${title}\n` + chalk.yellow(`Year: `) + `${year}\n` + chalk.yellow(`IMDB Rating: `) + `${imdbRating}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${rottenTomatoes}\n` + chalk.yellow(`Country: `) + `${country}\n` + chalk.yellow(`Language: `) + `${language}\n` + chalk.yellow(`Plot Summary: `) + `${plot}\n` + chalk.yellow(`Actors: `) + `${actors}\n`
 
-            // console.log(output);
+            console.log(output);
         })
     }
 }
@@ -81,6 +85,6 @@ switch(command){
     case "spotify-this-song":
     case "do-what-it-says":
     default:
-        console.log("\n----------------------------------\nPlease enter a valid command from the following four:\n1) movie-this\n2) concert-this\n3) spotify-this-song\n4) do-what-it-says\n")
-        return
+        console.log(`\n----------------------------------\n` + chalk.red(`\nPlease enter a valid command from the following four:\n`) + `1) movie-this\n2) concert-this\n3) spotify-this-song\n4) do-what-it-says\n`);
+        return false; 
 }
