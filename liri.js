@@ -79,12 +79,27 @@ function showConcert(){
         axios.get(queryURL).then(function(response){
             var concert = response.data;
             console.log(response.data);
+            console.log(concert.length);
             if(concert.length === 0){
-                console.log(`\nSorry! There are no upcoming events for `+ chalk.green(`${userInput}.`) + `\nThey are currently not on tour.\n\n-------------------------------------------\n`)
+                console.log(`\nSorry! There are no upcoming events for `+ chalk.green(`${userInput}`) + `.\nThey are currently not on tour.\n\n-------------------------------------------\n`)
+            }else{
+                for(var i = 0; i < concert.length; i++){
+                    // Time Converter
+                    var date = concert[i].datetime;
+                    var convertedDate = moment(date, 'YYYY-MM-DDTHH:mm:ss');
+                    // console.log(convertedDate);
+
+                    output = `\n-------------------------------------------\n\nUpcoming events for ` + chalk.green(userInput) + ': \n' + chalk.yellow(`Venue Name: `) + `${concert[i].venue.name}\n` + chalk.yellow(`Venue Location: `) + `${concert[i].country}, ${concert[i].city}\n` + chalk.yellow(`Event Date: `) + convertedDate.format("MM/DD/YY hh:mm A") + `\n` 
+
+                    console.log(output);
+                }
             }
         })
     }else{
-        console.log(`\nSeems like you forgot to enter an artist or band. Please try again!\n\n-------------------------------------------\n`)
+        
+        output = `\nSeems like you forgot to enter an artist or band. Please try again!\n\n-------------------------------------------\n`
+
+        console.log(output);
     }
 }
 
