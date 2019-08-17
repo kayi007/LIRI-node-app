@@ -28,10 +28,10 @@ function showMovie(){
             var movie = response.data;
             // console.log(response);
             // console.log(response.data.Ratings);
-            output = `\n-------------------------------------------\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`;
+            output = `\n----------------------- RESULTS -----------------------\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`;
 
             console.log(output);
-            trackHistory();
+            // trackHistory();
 
         }).catch(function(error) {
             // console.log(error);
@@ -92,10 +92,10 @@ function showConcert(){
                     var convertedDate = moment(date, 'YYYY-MM-DDTHH:mm:ss');
                     // console.log(convertedDate);
 
-                    output = `\n-------------------------------------------\n\n` + chalk.yellow(`Venue Name: `) + `${concert[i].venue.name}\n` + chalk.yellow(`Venue Location: `) + `${concert[i].venue.country}, ${concert[i].venue.city}\n` + chalk.yellow(`Event Date: `) + convertedDate.format("MM/DD/YY hh:mm A") + `\n`;
+                    output = `\n----------------------- RESULTS -----------------------\n\n` + chalk.yellow(`Venue Name: `) + `${concert[i].venue.name}\n` + chalk.yellow(`Venue Location: `) + `${concert[i].venue.country}, ${concert[i].venue.city}\n` + chalk.yellow(`Event Date: `) + convertedDate.format("MM/DD/YY hh:mm A") + `\n`;
 
                     console.log(output);
-                    trackHistory();
+                    // trackHistory();
                 }
             }
         }).catch(function(error) {
@@ -142,10 +142,10 @@ function showSong(){
             }
             var song = data.tracks;
 
-            output = `\n-------------------------------------------\n\n` + chalk.yellow(`Artist(s): `) + `${song.items[0].artists[0].name}\n` + chalk.yellow(`Song name: `) + `${song.items[0].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[0].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[0].album.name}\n`;
+            output = `\n----------------------- RESULTS -----------------------\n\n` + chalk.yellow(`Artist(s): `) + `${song.items[0].artists[0].name}\n` + chalk.yellow(`Song name: `) + `${song.items[0].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[0].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[0].album.name}\n`;
 
             console.log(output);
-            trackHistory();
+            // trackHistory();
         })
     }else{
         spotify.search({type: 'track', query: 'The Sign'}, function(err, data){
@@ -192,7 +192,7 @@ function doWhatItSays(){
 
 // Bonus function to track all User history 
 function trackHistory(){
-    fs.appendFile("history.txt", output, function(err){
+    fs.appendFile("log.txt", output, function(err){
         if (err) {
             return console.log(err);
         }else{
