@@ -31,6 +31,7 @@ function showMovie(){
             output = `\n-------------------------------------------\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`;
 
             console.log(output);
+            trackHistory();
 
         }).catch(function(error) {
             // console.log(error);
@@ -94,6 +95,7 @@ function showConcert(){
                     output = `\n-------------------------------------------\n\n` + chalk.yellow(`Venue Name: `) + `${concert[i].venue.name}\n` + chalk.yellow(`Venue Location: `) + `${concert[i].venue.country}, ${concert[i].venue.city}\n` + chalk.yellow(`Event Date: `) + convertedDate.format("MM/DD/YY hh:mm A") + `\n`;
 
                     console.log(output);
+                    trackHistory();
                 }
             }
         }).catch(function(error) {
@@ -143,6 +145,7 @@ function showSong(){
             output = `\n-------------------------------------------\n\n` + chalk.yellow(`Artist(s): `) + `${song.items[0].artists[0].name}\n` + chalk.yellow(`Song name: `) + `${song.items[0].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[0].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[0].album.name}\n`;
 
             console.log(output);
+            trackHistory();
         })
     }else{
         spotify.search({type: 'track', query: 'The Sign'}, function(err, data){
@@ -187,6 +190,17 @@ function doWhatItSays(){
     });
 }
 
+// Bonus function to track all User history 
+function trackHistory(){
+    fs.appendFile("history.txt", output, function(err){
+        if (err) {
+            return console.log(err);
+        }else{
+            console.log("Content added!");
+        }
+    });
+}
+
 // Switch cases for each command
 switch(command){
     case "movie-this":
@@ -200,4 +214,4 @@ switch(command){
     default:
         console.log(`\n-------------------------------------------\n` + chalk.red(`\nPlease enter a valid command from the following four:\n`) + `1) movie-this\n2) concert-this\n3) spotify-this-song\n4) do-what-it-says\n`);
         return false; 
-}
+};
