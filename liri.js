@@ -96,7 +96,32 @@ function showConcert(){
                     console.log(output);
                 }
             }
-        })
+        }).catch(function(error) {
+            // console.log(error);
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                // console.log("1");
+                console.log("---------------Data---------------");
+                console.log(error.response.data);
+                console.log("---------------Status---------------");
+                console.log(error.response.status);
+                console.log("---------------Status---------------");
+                console.log(error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                // `error.request` is an object that comes back with details pertaining to the error that occurred.
+                // console.log("2");
+                console.log(error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                // console.log("3");
+                console.log("\nError", error.message);
+                console.log(chalk.red("Please enter a valid movie!\n"));
+            }
+            // console.log("4");
+            console.log(error.config);
+        });
     }else{
 
         output = `\nSeems like you forgot to enter an artist or band. Please try again!\n\n-------------------------------------------\n`;
@@ -113,17 +138,11 @@ function showSong(){
                 console.log("Error 1");
                 return console.log('Error occurred: ' + err);
             }
-            // console.log("entered");
             var song = data.tracks;
 
             output = `\n-------------------------------------------\n\n` + chalk.yellow(`Artist(s): `) + `${song.items[0].artists[0].name}\n` + chalk.yellow(`Song name: `) + `${song.items[0].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[0].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[0].album.name}\n`;
 
-            // console.log(data);
             console.log(output);
-            // console.log("\n");
-            // console.log(song);
-            // console.log("\n");
-            // console.log(song.items[0]);
         })
     }else{
         spotify.search({type: 'track', query: 'The Sign'}, function(err, data){
@@ -143,6 +162,31 @@ function showSong(){
     }
 }
 
+// Function for Do-What-It-Says
+function doWhatItSays(){
+    fs.readFile("random.txt", "utf8", function(error, data){
+        if (error) {
+            return console.log(error);
+        }
+        console.log(data);
+        var output = data.split(",");
+        console.log(output);
+        command = output[0];
+        userInput = output[1];
+        switch(command){
+            case "movie-this":
+                return showMovie();
+            case "concert-this":
+                return showConcert();
+            case "spotify-this-song":
+                return showSong();
+            default: 
+                console.log(chalk.red("Please enter a valid commad!"));
+                return false;
+        };
+    });
+}
+
 // Switch cases for each command
 switch(command){
     case "movie-this":
@@ -152,6 +196,7 @@ switch(command){
     case "spotify-this-song":
         return showSong();
     case "do-what-it-says":
+        return doWhatItSays();
     default:
         console.log(`\n-------------------------------------------\n` + chalk.red(`\nPlease enter a valid command from the following four:\n`) + `1) movie-this\n2) concert-this\n3) spotify-this-song\n4) do-what-it-says\n`);
         return false; 
