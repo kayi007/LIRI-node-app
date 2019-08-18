@@ -137,7 +137,7 @@ function showSong(){
     if(userInput !== ""){
         spotify.search({type: 'track', query: userInput, limit: 1 }, function(err, data){
             if (err){
-                console.log("Error 1");
+                // console.log("Error 1");
                 return console.log('Error occurred: ' + err);
             }
             var song = data.tracks;
@@ -150,7 +150,7 @@ function showSong(){
     }else{
         spotify.search({type: 'track', query: 'The Sign'}, function(err, data){
             if (err){
-                console.log("Error 2");
+                // console.log("Error 2");
                 return console.log('Error occurred: ' + err);
             }
             var song = data.tracks;
