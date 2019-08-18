@@ -15,5 +15,6 @@ It will return the following information about the song: <br>
 > Spotify Preview Link of the song <br>
 > Song Album <br>
 
-:wind_chime: If no song is provided, then the app will by defalut return information of a song recommendation: "The Sign" by Ace of Base.
-
+:zap: If no song is provided, then the app will by defalut return information of a song recommendation: "The Sign" by Ace of Base.
+<hr>
+:clapper:
