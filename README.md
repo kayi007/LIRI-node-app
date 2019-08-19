@@ -6,7 +6,7 @@
 
 # Deployed Version of LIRI
 This app is meant to be run in the user's Terminal and not in the user's browser. <br>
-:link: https://drive.google.com/file/d/1vtHEz700rM_DI_GS5x-2OpuW3Ba14CJ6/view?usp=sharing
+:link: 
 
 # How to use/run LIRI
 If you decide to clone my app from GitHub and run it on your computer, you would need to supply your own `.env` file with your own API Keys. (See *Technologies Used for LIRI* below for instructions on where to sign up for your APIs)
