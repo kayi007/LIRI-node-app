@@ -173,7 +173,7 @@ function doWhatItSays(){
         }
         console.log(data);
         var output = data.split(",");
-        console.log(output);
+        // console.log(output);
         command = output[0];
         userInput = output[1];
         switch(command){
