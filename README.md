@@ -4,6 +4,10 @@
 # What does it do?
 **LIRI** will be a command line Node.js app that takes in parameters and gives you back data. LIRI will search Spotify for songs, Bands in Town for concerts, and OMDB for movies.
 
+# Deployed Version of LIRI
+This app is meant to be run in the user's Terminal and not in the user's browser. <br>
+:link: 
+
 # How to use/run LIRI
 :musical_score: **Search a song with Spotify**
 - type in command line: <br>
@@ -50,3 +54,15 @@ This will return the following information about the concert: <br>
 This will return whatever is stored inside of **random.txt**. It could be spotifying a song, searching for an artist/band or searching for a concert. 
 
 :zap: No information will be returned if the file is empty. 
+
+# Technologies Used for LIRI
+As an app developer of LIRI, here are the technologies I used:
+- Node.js (file system)
+- npm packages: axios, chalk, moment, node-spotify-api, dotenv
+- APIs: OMDB, Spotify, Bands in Town
+    - To obtain an API Key or ID:
+    > Bands in Town: email support@bandsintown.com <br>
+    > OMDB: visit http://www.omdbapi.com/ <br>
+    > Spotify: visit https://developer.spotify.com/dashboard/applications 
+
+
