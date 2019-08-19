@@ -9,7 +9,7 @@ This app is meant to be run in the user's Terminal and not in the user's browser
 :link: 
 
 # How to use/run LIRI
-If you are going to clone my app from GitHub and run it on your computer, you would need to supply your own `.env` file with your own API Keys. (See **Technologies Used for LIRI** below for instructions on where to sign up for your APIs)
+If you decide to clone my app from GitHub and run it on your computer, you would need to supply your own `.env` file with your own API Keys. (See *Technologies Used for LIRI* below for instructions on where to sign up for your APIs)
 
 :musical_score: **Search a song with Spotify**
 - type in command line: <br>
