@@ -9,6 +9,8 @@ This app is meant to be run in the user's Terminal and not in the user's browser
 :link: 
 
 # How to use/run LIRI
+If you are going to clone my app from GitHub and run it on your computer, you would need to supply your own `.env` file with your own API Keys. (See **Technologies Used for LIRI** below for instructions on where to sign up for your APIs)
+
 :musical_score: **Search a song with Spotify**
 - type in command line: <br>
 `node liri.js spotify-this-song '<song name here>'`
@@ -64,5 +66,4 @@ As an app developer of LIRI, here are the technologies I used:
     > Bands in Town: email support@bandsintown.com <br>
     > OMDB: visit http://www.omdbapi.com/ <br>
     > Spotify: visit https://developer.spotify.com/dashboard/applications 
-
 

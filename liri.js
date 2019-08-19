@@ -119,7 +119,7 @@ function showConcert(){
                 // Something happened in setting up the request that triggered an Error
                 // console.log("3");
                 console.log("\nError", error.message);
-                console.log(chalk.red("Please enter a valid movie!\n"));
+                console.log(chalk.red("Please enter a valid artist/band!\n"));
             }
             // console.log("4");
             console.log(error.config);
@@ -146,7 +146,7 @@ function showSong(){
 
             console.log(output);
             // trackHistory();
-        })
+        });
     }else{
         spotify.search({type: 'track', query: 'The Sign'}, function(err, data){
             if (err){
@@ -184,7 +184,7 @@ function doWhatItSays(){
             case "spotify-this-song":
                 return showSong();
             default: 
-                console.log(chalk.red("Please enter a valid commad!"));
+                console.log(chalk.red("Please enter a valid command!"));
                 return false;
         };
     });
