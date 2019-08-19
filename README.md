@@ -17,4 +17,28 @@ It will return the following information about the song: <br>
 
 :zap: If no song is provided, then the app will by defalut return information of a song recommendation: "The Sign" by Ace of Base.
 
-:clapper:
+:clapper: **Search a movie with OMDB**
+- type in command line: <br>
+`node liri.js movie-this '<movie name here>'`
+
+It will return the following information about the movie: <br>
+> Movie Title <br>
+> Movie Year <br>
+> IMDB Rating/Rotten Tomatoes Rating <br>
+> Country (where the movie was produced) <br>
+> Language Available <br>
+> Movie Plot Summary <br>
+> Actors <br>
+
+:zap: If no movie is provided, then the app will by defalut return information of a movie recommendation: "Mr.Nobody".
+
+:confetti_ball: **Search a concert with Bands in Town**
+- type in command line: <br>
+`node liri.js concert-this <artist/band name here>`
+
+It will return the following information about the concert: <br>
+> Name of the venue <br>
+> Venue Location <br>
+> Event Date (MM/DD/YYYY) <br>
+
+:zap: If no artist/band is provided, then no information will be returned. You'll have to enter an artist or band. 
