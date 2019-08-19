@@ -9,7 +9,7 @@
 - type in command line: <br>
 `node liri.js spotify-this-song '<song name here>'`
 
-It will return the following information about the song: <br>
+This will return the following information about the song: <br>
 > Artist(s) <br>
 > Song Name <br>
 > Spotify Preview Link of the song <br>
@@ -21,7 +21,7 @@ It will return the following information about the song: <br>
 - type in command line: <br>
 `node liri.js movie-this '<movie name here>'`
 
-It will return the following information about the movie: <br>
+This will return the following information about the movie: <br>
 > Movie Title <br>
 > Movie Year <br>
 > IMDB Rating/Rotten Tomatoes Rating <br>
@@ -36,9 +36,17 @@ It will return the following information about the movie: <br>
 - type in command line: <br>
 `node liri.js concert-this <artist/band name here>`
 
-It will return the following information about the concert: <br>
+This will return the following information about the concert: <br>
 > Name of the venue <br>
 > Venue Location <br>
 > Event Date (MM/DD/YYYY) <br>
 
 :zap: If no artist/band is provided, then no information will be returned. You'll have to enter an artist or band. 
+
+:mag: **Search in RANDOM.TXT** 
+- type in command line: <br>
+`node liri.js do-what-it-says`
+
+This will return whatever is stored inside of **random.txt**. It could be spotifying a song, searching for an artist/band or searching for a concert. 
+
+:zap: No information will be returned if the file is empty. 
