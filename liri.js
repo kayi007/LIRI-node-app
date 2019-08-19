@@ -14,9 +14,9 @@ const chalk = require("chalk");
 
 // Declear user input variables
 var command = process.argv[2];
-console.log(command);
+// console.log(command);
 var userInput = process.argv.slice(3).join(" ");
-console.log(userInput);
+// console.log(userInput);
 var output;
 
 // Function that display OMDB Movie Info search
@@ -31,7 +31,7 @@ function showMovie(){
             output = `\n----------------------- RESULTS -----------------------\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`;
 
             console.log(output);
-            // trackHistory();
+            trackHistory();
 
         }).catch(function(error) {
             // console.log(error);
@@ -66,7 +66,7 @@ function showMovie(){
             // console.log(response);
             // console.log(response.data.Ratings);
 
-            output = chalk.red(`Seems like you forgot to enter a movie!\n`) + `It's okay, just remember to enter it next time!\n-------------------------------------------\nHere's a recommendation for you: (It's on Netflix!)\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`;
+            output = chalk.red(`\nSeems like you forgot to enter a movie!\n`) + `It's okay, just remember to enter it next time!\n-------------------------------------------\nHere's a recommendation for you: (It's on Netflix!)\n\n` + chalk.yellow(`Movie Title: `) + `${movie.Title}\n` + chalk.yellow(`Year: `) + `${movie.Year}\n` + chalk.yellow(`IMDB Rating: `) + `${movie.Ratings[0].Value}\n` + chalk.yellow(`Rotten Tomatoes Rating: `) + `${movie.Ratings[1].Value}\n` + chalk.yellow(`Country: `) + `${movie.Country}\n` + chalk.yellow(`Language: `) + `${movie.Language}\n` + chalk.yellow(`Plot Summary: `) + `${movie.Plot}\n` + chalk.yellow(`Actors: `) + `${movie.Actors}\n`;
 
             console.log(output);
         });
@@ -95,7 +95,7 @@ function showConcert(){
                     output = `\n----------------------- RESULTS -----------------------\n\n` + chalk.yellow(`Venue Name: `) + `${concert[i].venue.name}\n` + chalk.yellow(`Venue Location: `) + `${concert[i].venue.country}, ${concert[i].venue.city}\n` + chalk.yellow(`Event Date: `) + convertedDate.format("MM/DD/YY hh:mm A") + `\n`;
 
                     console.log(output);
-                    // trackHistory();
+                    trackHistory();
                 }
             }
         }).catch(function(error) {
@@ -145,7 +145,7 @@ function showSong(){
             output = `\n----------------------- RESULTS -----------------------\n\n` + chalk.yellow(`Artist(s): `) + `${song.items[0].artists[0].name}\n` + chalk.yellow(`Song name: `) + `${song.items[0].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[0].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[0].album.name}\n`;
 
             console.log(output);
-            // trackHistory();
+            trackHistory();
         });
     }else{
         spotify.search({type: 'track', query: 'The Sign'}, function(err, data){
@@ -155,7 +155,7 @@ function showSong(){
             }
             var song = data.tracks;
 
-            output = chalk.red(`Seems like you forgot to enter a song!`) + `\nIt's okay, just remember to enter it next time!\n-------------------------------------------\nHere's a recommendation for you: \n\n` + chalk.yellow(`Artist(s): `) + `${song.items[4].artists[0].name}\n` + chalk.yellow(`Song Name: `) + `${song.items[4].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[4].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[4].album.name}\n`;
+            output = chalk.red(`\nSeems like you forgot to enter a song!`) + `\nIt's okay, just remember to enter it next time!\n-------------------------------------------\nHere's a recommendation for you: \n\n` + chalk.yellow(`Artist(s): `) + `${song.items[4].artists[0].name}\n` + chalk.yellow(`Song Name: `) + `${song.items[4].name}\n` + chalk.yellow(`Spotify Preview Link: `) + `${song.items[4].preview_url}\n` + chalk.yellow(`Song Album: `) + `${song.items[4].album.name}\n`;
             // console.log(data);
             // console.log(data.tracks.items[4]);
             // console.log("\n");
@@ -196,7 +196,7 @@ function trackHistory(){
         if (err) {
             return console.log(err);
         }else{
-            console.log("Content added!");
+            console.log("Content added!\n");
         }
     });
 }
